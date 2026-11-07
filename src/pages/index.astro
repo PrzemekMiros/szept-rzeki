@@ -44,7 +44,7 @@ const faqs = [
 <body>
 <a class="skip-link" href="#main">Przejdź do treści</a>
 <header class="site-header"><div class="container header-inner">
- <Brand />
+ <Brand logo="logo-dark.png" scrolledLogo="logo.png" />
  <nav id="main-nav" aria-label="Nawigacja główna">{nav.map(([label,id])=><a href={`#${id}`}>{label}</a>)}</nav>
  <a class="button small header-book" href="#rezerwacja">Zarezerwuj <Icon name="arrow" size={17}/></a>
  <button class="menu-toggle icon-button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="main-nav"><Icon name="menu"/></button>
@@ -58,7 +58,7 @@ const faqs = [
  <div class="button-row"><a class="button" href="#o-przystani">Poznaj naszą przystań <Icon name="arrow" size={18}/></a><a class="text-button" href="#atrakcje">Zobacz atrakcje <span class="circle-arrow"><Icon name="arrow" size={16}/></span></a></div>
  <div class="hero-perks"><span><Icon name="leaf" size={17}/> Blisko natury</span><span><Icon name="paddle" size={17}/> Aktywny wypoczynek</span><span><Icon name="heart" size={17}/> Wspólny czas</span></div>
 </div><div class="hero-visual"><div class="hero-blob"></div><div class="sun-decoration" aria-hidden="true"><Icon name="sun" size={80}/></div>
- <img class="hero-photo" src="/images/pier.jpg" alt="Drewniany pomost nad spokojną wodą otoczoną lasem — zdjęcie inspiracyjne" width="600" height="650" fetchpriority="high"/>
+ <img class="hero-photo" src="/images/przystan.jpg" alt="Drewniany pomost nad spokojną wodą otoczoną lasem — zdjęcie inspiracyjne" width="600" height="650" fetchpriority="high"/>
  <div class="floating-tag"><span class="tag-icon"><Icon name="leaf" size={22}/></span><div>Wdech. Wydech.<strong>Jesteś blisko natury.</strong></div></div>
  <div class="floating-note"><span class="note-sun"><Icon name="sun" size={27}/></span><div>Dobry dzień zaczyna się<strong>nad rzeką.</strong></div><span class="note-heart">♡</span></div>
  <span class="image-caption">MNIEJ POŚPIECHU, WIĘCEJ ŻYCIA</span>

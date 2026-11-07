@@ -1,6 +1,10 @@
 const $ = <T extends HTMLElement>(selector: string) => document.querySelector<T>(selector)!;
 const menu = $('.menu-toggle');
 const nav = $('#main-nav');
+const header = $('.site-header');
+const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
+updateHeader();
+window.addEventListener('scroll', updateHeader, { passive: true });
 const setMenu = (open: boolean) => { menu.setAttribute('aria-expanded', String(open)); menu.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu'); nav.classList.toggle('open', open); };
 menu.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
 nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
