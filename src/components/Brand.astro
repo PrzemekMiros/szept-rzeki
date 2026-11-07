@@ -1,0 +1,16 @@
+---
+interface Props {
+  logo?: string;
+}
+
+const { logo = 'logo.png' } = Astro.props;
+---
+<a class="brand brand-image" href="#" aria-label="Szept Rzeki — strona główna">
+  <img
+    src={`${import.meta.env.BASE_URL}images/${logo}`}
+    alt="Szept Rzeki — blisko natury, blisko siebie"
+    width="1882"
+    height="507"
+    decoding="async"
+  />
+</a>
