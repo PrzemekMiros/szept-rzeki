@@ -20,7 +20,7 @@ footer{background:#124d3c;color:#d7e7dc;padding:65px 0 0}.footer-grid{display:gr
 @media(max-width:430px){.hero h1{font-size:53px}.hero-visual{height:360px}.hero-photo{height:328px}.hero .button-row{gap:13px}.hero .button{padding:14px 15px;font-size:10px}.hero .text-button{font-size:10px}.hero-perks{gap:10px;font-size:8px}.attraction-grid{grid-template-columns:1fr}.card-image{height:235px;margin:9px 9px 0}.card-body{padding:33px 24px 25px}.card-body h3{font-size:23px}.card-body p{font-size:13px;min-height:0}.card-body .inline-link{font-size:12px}.card-icon{width:43px;height:43px;bottom:-20px;left:17px}.hero-bottom{font-size:8px}.hero-bottom a{font-size:9px}.header-book{padding:10px 13px!important}.brand{font-size:21px}.brand-icon{width:35px;height:35px}.brand-icon svg{width:26px}.brand-caption{font-size:5.5px}.header-inner{gap:8px}.hero-copy>p{font-size:12px}.review-card{flex-basis:94%}.testimonials .heading-row h2{font-size:29px}.slider-controls{gap:5px}.slider-controls .icon-button{width:31px;height:31px}}
 .brand-image{width:230px;max-width:100%;flex-shrink:0}
 .brand-image img{display:block;width:100%;height:auto;object-fit:contain}
-footer .brand-image{width:230px;padding:9px 12px;background:transparent;border:0;border-radius:0}
+footer .brand-image{width:230px;background:transparent;border:0;border-radius:0}
 @media(max-width:1190px){.site-header .brand-image{width:230px}}
 @media(max-width:760px){.site-header .brand-image{width:clamp(140px,45vw,190px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
@@ -58,7 +58,7 @@ body{background:#fffdfa}
 .faq details[open]{background:#f1ebf3;border-color:#e4d9e8}
 .cta-box{background:#f0eaf2}
 .testimonials{background:#faf8f5}
-h1,h2,h3{font-family:var(--heading);font-weight:600}
+h1,h2,h3{font-family:var(--heading);font-weight:500}
 h1{letter-spacing:-.025em}
 h2{font-size:clamp(36px,4vw,56px);line-height:1.04;letter-spacing:-.025em}
 h3{letter-spacing:0;line-height:1.2}
@@ -79,7 +79,7 @@ footer a:hover,footer button:hover{color:#e2bf8f}
 .site-header.is-scrolled{position:fixed;background:#fffdfaed;border-bottom:1px solid #eee8ef;backdrop-filter:blur(16px);box-shadow:0 6px 24px #29232e0c}
 .site-header:not(.is-scrolled) nav a{color:#fff}
 .site-header:not(.is-scrolled) nav a:hover{color:#e2bf8f}
-.site-header .brand-image{padding:9px 12px;background:transparent;border:0;border-radius:0}
+.site-header .brand-image{background:transparent;border:0;border-radius:0}
 .site-header .brand-logo-scrolled{display:none}
 .site-header.is-scrolled .brand-logo-default{display:none}
 .site-header.is-scrolled .brand-logo-scrolled{display:block}
@@ -109,7 +109,7 @@ footer a:hover,footer button:hover{color:#e2bf8f}
 .site-header.is-scrolled nav a:hover{color:var(--green)}
 @media(max-width:760px){
  .site-header{height:76px}
- .site-header .brand-image{width:clamp(140px,45vw,190px);padding:7px 9px}
+ .site-header .brand-image{width:clamp(140px,45vw,190px);}
  .site-header:not(.is-scrolled) nav{background:#fffdfaf5}
  .site-header:not(.is-scrolled) nav a{color:var(--ink)}
  .hero{min-height:750px;min-height:88svh}
@@ -121,3 +121,89 @@ footer a:hover,footer button:hover{color:#e2bf8f}
  .hero-perks{gap:13px 20px;margin-top:27px;font-size:10px}
  .hero-photo{object-position:58% center}
 }
+
+.cookie-banner{position:fixed;inset:50% auto auto 50%;z-index:100;width:min(830px,calc(100vw - 48px));max-height:85svh;overflow:auto;transform:translate(-50%,-50%);background:#fffdfa;color:var(--ink);border:1px solid #e8e1e9;border-radius:10px;box-shadow:0 12px 50px #29232e30;font-family:'DM Sans',sans-serif}
+body:has(.cookie-banner:not([hidden]))::before{content:'';position:fixed;inset:0;z-index:99;background:#29232e40;backdrop-filter:blur(1px);pointer-events:auto}
+.cookie-banner[hidden],.cookie-banner [hidden]{display:none!important}
+.cookie-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.cookie-tab{position:relative;min-height:62px;padding:14px 20px;font-size:16px;font-weight:650;color:var(--ink)}
+.cookie-tab::after{content:'';position:absolute;inset:auto 0 -1px;height:3px;background:transparent}
+.cookie-tab:hover,.cookie-tab.is-active{color:var(--green)}
+.cookie-tab.is-active::after{background:var(--green)}
+.cookie-panel{padding:27px clamp(22px,3vw,40px) 25px}
+.cookie-panel h2{margin-bottom:10px;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:0;line-height:1.4}
+.cookie-panel>p{max-width:1100px;color:#44404a;font-size:16px;line-height:1.65}
+.cookie-signal{display:flex;align-items:center;gap:12px;padding:13px clamp(22px,3vw,30px);border-block:1px solid var(--line);font-size:15px}
+.cookie-check{display:grid;width:20px;height:20px;place-items:center;border-radius:50%;background:#3d3741;color:white;font-size:13px;font-weight:700}
+.cookie-error{padding:12px clamp(22px,3vw,30px) 0;color:#9a3434;font-size:13px}
+.cookie-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:18px clamp(22px,3vw,30px) 24px}
+.cookie-actions button{display:flex;min-height:58px;align-items:center;justify-content:center;gap:16px;padding:13px 20px;border:1px solid var(--green);border-radius:7px;background:var(--green);color:white;font-size:15px;font-weight:650;transition:background .2s,color .2s}
+.cookie-actions button:hover{background:#302337}
+.cookie-actions #cookie-deny{background:#fff;color:var(--green)}
+.cookie-actions #cookie-deny:hover{background:var(--mint)}
+.cookie-actions #cookie-customize{background:#f0eaf2;color:var(--green)}
+.cookie-actions #cookie-customize:hover{background:#e8dfea}
+.cookie-actions #cookie-save{grid-column:span 2}
+.cookie-category{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 0;border-top:1px solid var(--line);font-size:14px}
+.cookie-category>span,.cookie-category label>span{display:grid;gap:5px}
+.cookie-category strong{font-size:14px}
+.cookie-category p,.cookie-category>span>span{font-size:12px;line-height:1.5}
+.cookie-required{flex:0 0 auto;color:var(--muted);font-size:12px}
+.cookie-category input[type=checkbox]{width:44px;height:24px;flex:0 0 auto;appearance:none;border:1px solid #a9a0ad;border-radius:99px;background:#d9d3dd;cursor:pointer;transition:background .2s}
+.cookie-category input[type=checkbox]::before{content:'';display:block;width:18px;height:18px;margin:2px;border-radius:50%;background:#fff;transition:transform .2s}
+.cookie-category input[type=checkbox]:checked{border-color:var(--green);background:var(--green)}
+.cookie-category input[type=checkbox]:checked::before{transform:translateX(20px)}
+.cookie-category input[type=checkbox]:disabled{cursor:not-allowed;opacity:.5}
+.cookie-category input[type=checkbox]:focus-visible{outline:3px solid #b58f12;outline-offset:3px}
+footer .footer-bottom button#open-consent-settings{padding:0;text-align:left;color:inherit;font-size:inherit}
+footer .footer-bottom button#open-consent-settings:hover{color:#e2bf8f}
+@media(max-width:760px){
+ .cookie-banner{inset:auto 0 0;width:auto;max-height:90svh;transform:none;border-radius:14px 14px 0 0}
+ .cookie-tab{min-height:54px;padding:12px 8px;font-size:14px}
+ .cookie-panel{padding:21px 20px}
+ .cookie-panel h2{font-size:17px}
+ .cookie-panel>p{font-size:14px}
+ .cookie-signal{padding:12px 20px;font-size:13px}
+ .cookie-actions{grid-template-columns:1fr 1fr;gap:8px;padding:14px 16px 18px}
+ .cookie-actions button{min-height:50px;padding:11px 9px;font-size:13px}
+ .cookie-actions #cookie-allow{grid-column:1/-1}
+ .cookie-actions #cookie-save{grid-column:1/-1}
+ .cookie-category{gap:12px}
+ .cookie-required{max-width:105px;text-align:right}
+}
+@media(prefers-reduced-motion:reduce){
+ .cookie-actions button,.cookie-category input[type=checkbox],.cookie-category input[type=checkbox]::before{transition:none}
+}
+
+.dark-section{background:#352a3b;color:#f5eff6}
+.dark-section .section-heading h2{color:#fff}
+.dark-section .section-heading h2 span{color:#e2bf8f}
+.dark-section .section-heading .eyebrow{color:#e9ddeb;background:#4b3b52}
+.dark-section .section-heading>p{color:#ddd3e0}
+.benefits.dark-section .benefit-icon{background:#4b3b52;color:#f4ead9}
+.benefits.dark-section .benefit-grid h3,.steps.dark-section .steps-grid h3{color:#fff}
+.benefits.dark-section .benefit-grid p,.steps.dark-section .steps-grid p{color:#d4cbd7}
+.steps.dark-section .steps-grid:before{border-color:#a897b0}
+.steps.dark-section .step-number,.steps.dark-section .steps-grid article:nth-child(2) .step-number,.steps.dark-section .steps-grid article:nth-child(3) .step-number{background:#4b3b52;border-color:#352a3b;color:#f4ead9}
+.booking.dark-section .booking-panel{border-color:#6a5a70;box-shadow:0 14px 40px #17121c30}
+.booking.dark-section .booking-options,.booking.dark-section .calendar-panel{background:#352a3b}
+.booking.dark-section .calendar-panel{border-color:#6a5a70}
+.booking.dark-section .step-label{color:#d2c5d6}
+.booking.dark-section .calendar-heading h3,.booking.dark-section .booking-options h3{color:#fff}
+.booking.dark-section .weekdays,.booking.dark-section .calendar-legend{color:#d2c5d6}
+.booking.dark-section .calendar-days button{background:#f0eaf2;color:#403047}
+.booking.dark-section .calendar-days button:hover{background:#e2d5e7}
+.booking.dark-section .calendar-days button:disabled{background:transparent;color:#a89bad}
+.booking.dark-section .calendar-days button[aria-pressed=true]{background:#e2bf8f;color:#352a3b}
+.booking.dark-section .calendar-days button.today{box-shadow:inset 0 0 0 2px #e2bf8f}
+.booking.dark-section .calendar-legend span{background:#e2bf8f}
+.booking.dark-section .calendar-legend span:nth-of-type(2){background:#f0eaf2}
+.booking.dark-section .time-picker legend{color:#f5eff6}
+.booking.dark-section .time-picker legend span{color:#d2c5d6}
+.booking.dark-section .time-picker label>span{border-color:#a897b0;color:#f5eff6}
+.booking.dark-section .time-picker input:checked+span{border-color:#e2bf8f;background:#e2bf8f;color:#352a3b}
+.gallery.dark-section .gallery-aside{color:#e2d6e5}
+.gallery.dark-section .gallery-grid h3{color:#fff}
+.gallery.dark-section .gallery-grid p,.gallery.dark-section .section-note{color:#d4cbd7}
+.gallery.dark-section .gallery-grid .inline-link{color:#e2bf8f}
+.gallery.dark-section .gallery-grid .inline-link:hover{color:#fff}

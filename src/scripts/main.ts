@@ -1,7 +1,131 @@
+declare global {
+ interface Navigator {
+  globalPrivacyControl?: boolean;
+ }
+ interface Window {
+  dataLayer: IArguments[];
+  gtag: (...args: unknown[]) => void;
+ }
+}
+
 const $ = <T extends HTMLElement>(selector: string) => document.querySelector<T>(selector)!;
 const menu = $('.menu-toggle');
 const nav = $('#main-nav');
 const header = $('.site-header');
+type ConsentPreferences = { analytics: boolean; marketing: boolean };
+const consentStorageKey = 'szept-rzeki-consent';
+const cookieBanner = $<HTMLElement>('#cookie-banner');
+const cookieAnalytics = $<HTMLInputElement>('#consent-analytics');
+const cookieMarketing = $<HTMLInputElement>('#consent-marketing');
+const cookieError = $<HTMLElement>('#cookie-error');
+const isGpcEnabled = navigator.globalPrivacyControl === true;
+
+const readConsent = (): ConsentPreferences | null => {
+ try {
+  const stored = localStorage.getItem(consentStorageKey);
+  if (!stored) return null;
+  const parsed: unknown = JSON.parse(stored);
+  if (typeof parsed !== 'object' || parsed === null) throw new Error('Stored consent is not an object');
+  const preferences = parsed as Record<string, unknown>;
+  if (typeof preferences.analytics !== 'boolean' || typeof preferences.marketing !== 'boolean') {
+   throw new Error('Stored consent has an invalid shape');
+  }
+  return { analytics: preferences.analytics, marketing: preferences.marketing };
+ } catch (error) {
+  console.error('Unable to read saved privacy preferences.', error);
+  return null;
+ }
+};
+
+const applyConsent = ({ analytics, marketing }: ConsentPreferences) => {
+ window.gtag('consent', 'update', {
+  analytics_storage: analytics ? 'granted' : 'denied',
+  ad_storage: marketing && !isGpcEnabled ? 'granted' : 'denied',
+  ad_user_data: marketing && !isGpcEnabled ? 'granted' : 'denied',
+  ad_personalization: marketing && !isGpcEnabled ? 'granted' : 'denied',
+  personalization_storage: analytics ? 'granted' : 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+ });
+};
+
+const savedConsent = readConsent();
+let effectiveConsent = isGpcEnabled
+ ? { analytics: savedConsent?.analytics ?? false, marketing: false }
+ : savedConsent;
+cookieAnalytics.disabled = false;
+cookieMarketing.disabled = isGpcEnabled;
+cookieAnalytics.checked = effectiveConsent?.analytics ?? false;
+cookieMarketing.checked = effectiveConsent?.marketing ?? false;
+$('#cookie-signal-text').textContent = isGpcEnabled
+ ? 'Sygnał GPC blokuje reklamy i personalizację'
+ : 'Analityka i reklamy są domyślnie wyłączone';
+applyConsent(effectiveConsent ?? { analytics: false, marketing: false });
+cookieBanner.hidden = Boolean(savedConsent && !isGpcEnabled);
+
+const updateCookieActions = (tab: string) => {
+ $('#cookie-customize').hidden = tab !== 'consent';
+ $('#cookie-allow').hidden = tab !== 'consent';
+ $('#cookie-allow').textContent = isGpcEnabled ? 'Akceptuj analitykę' : 'Akceptuj wszystkie';
+ $('#cookie-save').hidden = tab !== 'details';
+};
+const setCookieTab = (tab: string) => {
+ document.querySelectorAll<HTMLButtonElement>('[data-cookie-tab]').forEach(button => {
+  const selected = button.dataset.cookieTab === tab;
+  button.classList.toggle('is-active', selected);
+  button.setAttribute('aria-selected', String(selected));
+  button.tabIndex = selected ? 0 : -1;
+ });
+ document.querySelectorAll<HTMLElement>('[data-cookie-panel]').forEach(panel => {
+  panel.hidden = panel.dataset.cookiePanel !== tab;
+ });
+ updateCookieActions(tab);
+};
+setCookieTab('consent');
+document.querySelectorAll<HTMLButtonElement>('[data-cookie-tab]').forEach((button, index, buttons) => {
+ button.addEventListener('click', () => setCookieTab(button.dataset.cookieTab!));
+ button.addEventListener('keydown', event => {
+  if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+  event.preventDefault();
+  const nextIndex = event.key === 'Home' ? 0
+   : event.key === 'End' ? buttons.length - 1
+   : (index + (event.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length;
+  buttons[nextIndex].focus();
+  buttons[nextIndex].click();
+ });
+});
+const saveConsent = (preferences: ConsentPreferences) => {
+ const effectivePreferences = isGpcEnabled
+  ? { analytics: preferences.analytics, marketing: false }
+  : preferences;
+ try {
+  localStorage.setItem(consentStorageKey, JSON.stringify(effectivePreferences));
+ } catch (error) {
+  applyConsent({ analytics: false, marketing: false });
+  cookieError.hidden = false;
+  console.error('Unable to save privacy preferences.', error);
+  return;
+ }
+ applyConsent(effectivePreferences);
+ effectiveConsent = effectivePreferences;
+ cookieError.hidden = true;
+ cookieBanner.hidden = true;
+};
+$('#cookie-deny').addEventListener('click', () => saveConsent({ analytics: false, marketing: false }));
+$('#cookie-allow').addEventListener('click', () => saveConsent({ analytics: true, marketing: true }));
+$('#cookie-customize').addEventListener('click', () => setCookieTab('details'));
+$('#cookie-save').addEventListener('click', () => saveConsent({
+ analytics: cookieAnalytics.checked,
+ marketing: cookieMarketing.checked,
+}));
+$('#open-consent-settings').addEventListener('click', () => {
+ cookieAnalytics.checked = effectiveConsent?.analytics ?? false;
+ cookieMarketing.checked = effectiveConsent?.marketing ?? false;
+ cookieError.hidden = true;
+ cookieBanner.hidden = false;
+ setCookieTab('consent');
+ $('#cookie-tab-consent').focus();
+});
 const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
