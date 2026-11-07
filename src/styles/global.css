@@ -59,7 +59,7 @@ body{background:#fffdfa}
 .cta-box{background:#f0eaf2}
 .testimonials{background:#faf8f5}
 h1,h2,h3{font-family:var(--heading);font-weight:600}
-h1{font-style:italic;letter-spacing:-.025em}
+h1{letter-spacing:-.025em}
 h2{font-size:clamp(36px,4vw,56px);line-height:1.04;letter-spacing:-.025em}
 h3{letter-spacing:0;line-height:1.2}
 main h1,main h2,main h3{color:var(--green)}
@@ -90,7 +90,7 @@ footer a:hover,footer button:hover{color:#e2bf8f}
 .hero-copy{max-width:950px;margin-inline:auto;position:relative;z-index:5;padding:0;text-align:center}
 .hero .eyebrow{color:#f4ead9}
 .hero .tiny-dot{background:#e2bf8f}
-.hero h1{margin:28px 0 22px;color:#fff;font-size:clamp(48px,7vw,106px);line-height:.91;letter-spacing:-.035em}
+.hero h1{margin:28px 0 22px;color:#fff;font-size:clamp(40px,6vw,96px);line-height:.91;letter-spacing:-.035em}
 .hero .underlined{color:#fff}
 .hero .underlined svg{stroke:#e2bf8f}
 .hero-copy>p{max-width:720px;margin:0 auto 30px;color:#fff;font-size:clamp(16px,1.6vw,19px);line-height:1.55}
