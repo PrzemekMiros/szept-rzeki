@@ -1,43 +1,38 @@
-# Astro Starter Kit: Minimal
+﻿# Szept Rzeki
+
+Strona Astro z Tailwind CSS. Wymaga Node.js zgodnego z `engines` w `package.json`; workflow korzysta z Node.js 24.
+
+## Praca lokalna
 
 ```sh
-npm create astro@latest -- --template minimal
+npm ci
+npm run dev -- --background
+npm run astro -- dev status
+npm run astro -- dev logs
+npm run astro -- dev stop
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Budowanie
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Gotowa strona znajduje się w `dist/`. Nie należy publikować katalogu `src/` jako gotowej strony.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## GitHub Pages
 
-Any static assets, like images, can be placed in the `public/` directory.
+Workflow `.github/workflows/deploy.yml` instaluje zależności, buduje Astro, przesyła `dist/` i wdraża go do GitHub Pages po pushu na `main`. Można go też uruchomić ręcznie w zakładce Actions.
 
-## 🧞 Commands
+1. W repozytorium otwórz **Settings → Pages → Build and deployment**.
+2. Ustaw **Source: GitHub Actions**, zamiast **Deploy from a branch**.
+3. Wyślij kod strony, `package-lock.json`, konfigurację Astro oraz `.github/workflows/deploy.yml` do repozytorium. Sam lokalny plik workflow nie uruchamia GitHub Actions.
+4. Sprawdź przebieg **Deploy Astro to GitHub Pages**. Nie uruchamiaj ponownie starego przebiegu **pages build and deployment**, który korzystał z Jekylla.
 
-All commands are run from the root of the project, from a terminal:
+Domena `przystan-szept-rzeki.pl` jest ustawiona jako `site` w `astro.config.mjs` oraz w `public/CNAME` (Astro kopiuje ten plik do `dist/`). Ustawienie domeny w GitHub Pages i rekordy DNS muszą odpowiadać tej domenie. Nie dodajemy `base: '/szept-rzeki'`, ponieważ strona korzysta z własnej domeny.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Plik `public/.nojekyll` oznacza wynik jako gotową stronę statyczną, ale nie zastępuje budowania Astro ani ustawienia źródła na GitHub Actions.
 
-## 👀 Want to learn more?
+## Zawartość pokazowa
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Kalendarz tworzy lokalny plan wizyty; nie potwierdza dostępności, nie wysyła rezerwacji i nie pobiera płatności. Dane przystani, oferta i opinie wymagają potwierdzenia przed uruchomieniem usług.
