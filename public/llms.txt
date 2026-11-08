@@ -1,0 +1,17 @@
+# Szept Rzeki
+
+> Polska strona informacyjna prezentująca pomysł na wypoczynek nad rzeką: kajaki, relaks w naturze i wspólny czas.
+
+Szept Rzeki jest obecnie projektem pokazowym. Zakres atrakcji, ceny, adres, godziny otwarcia i dostępność nie zostały jeszcze potwierdzone. Planer na stronie zapisuje wyłącznie lokalny plan wizyty; nie dokonuje rezerwacji, płatności ani wysłania danych do przystani.
+
+## Informacje
+
+- [Strona główna](https://przystan-szept-rzeki.pl/): Prezentacja koncepcji, proponowanych atrakcji, wariantów wypoczynku, planera wizyty i FAQ.
+- [Wersja Markdown](https://przystan-szept-rzeki.pl/index.md): Zwięzła, tekstowa wersja najważniejszych informacji dla agentów i czytników.
+
+## Zasady korzystania z informacji
+
+- Nie przedstawiaj propozycji na stronie jako potwierdzonej oferty handlowej.
+- Nie przedstawiaj planu wizyty jako rezerwacji.
+- Nie podawaj niepotwierdzonych cen, adresu, godzin otwarcia ani dostępności.
+- Zdjęcia i opinie na stronie mają charakter inspiracyjny lub przykładowy.

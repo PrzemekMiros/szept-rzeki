@@ -146,10 +146,10 @@ document.querySelectorAll<HTMLElement>('[data-detail]').forEach(button => button
  openDialog($<HTMLDialogElement>('#detail-dialog'));
 }));
 
-const images = Array.from(document.querySelectorAll<HTMLElement>('.gallery-image')).map(el => ({ src: el.dataset.gallery!, title: el.dataset.caption! }));
+const images = Array.from(document.querySelectorAll<HTMLElement>('.gallery-image')).map(el => ({ key: el.dataset.gallery!, title: el.dataset.caption! }));
 let imageIndex = 0;
-const showImage = () => { const image = $<HTMLImageElement>('#lightbox-image'); image.src = images[imageIndex].src; image.alt = images[imageIndex].title + ' — zdjęcie inspiracyjne'; $('#gallery-caption').textContent = images[imageIndex].title + ' · ' + (imageIndex + 1) + '/' + images.length; };
-document.querySelectorAll<HTMLElement>('[data-gallery]').forEach(button => button.addEventListener('click', () => { imageIndex = images.findIndex(image => image.src === button.dataset.gallery); showImage(); openDialog($<HTMLDialogElement>('#gallery-dialog')); }));
+const showImage = () => { document.querySelectorAll<HTMLImageElement>('[data-lightbox-image]').forEach(image => { image.hidden = image.dataset.lightboxImage !== images[imageIndex].key; }); $('#gallery-caption').textContent = images[imageIndex].title + ' · ' + (imageIndex + 1) + '/' + images.length; };
+document.querySelectorAll<HTMLElement>('[data-gallery]').forEach(button => button.addEventListener('click', () => { imageIndex = images.findIndex(image => image.key === button.dataset.gallery); showImage(); openDialog($<HTMLDialogElement>('#gallery-dialog')); }));
 const moveImage = (delta: number) => { imageIndex = (imageIndex + delta + images.length) % images.length; showImage(); };
 $('#gallery-prev').addEventListener('click', () => moveImage(-1));
 $('#gallery-next').addEventListener('click', () => moveImage(1));
