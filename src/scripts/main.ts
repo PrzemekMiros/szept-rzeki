@@ -61,7 +61,7 @@ $('#cookie-signal-text').textContent = isGpcEnabled
  ? 'Sygnał GPC blokuje reklamy i personalizację'
  : 'Analityka i reklamy są domyślnie wyłączone';
 applyConsent(effectiveConsent ?? { analytics: false, marketing: false });
-cookieBanner.hidden = Boolean(savedConsent && !isGpcEnabled);
+cookieBanner.hidden = Boolean(savedConsent);
 
 const updateCookieActions = (tab: string) => {
  $('#cookie-customize').hidden = tab !== 'consent';
