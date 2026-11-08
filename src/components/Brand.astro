@@ -6,15 +6,16 @@ import logoImage from '../assets/images/logo.png';
 interface Props {
   logo?: keyof typeof logos;
   scrolledLogo?: keyof typeof logos;
+  href?: string;
 }
 
 const logos = {
   'logo-dark.png': logoDarkImage,
   'logo.png': logoImage,
 };
-const { logo = 'logo.png', scrolledLogo } = Astro.props;
+const { logo = 'logo.png', scrolledLogo, href = '/' } = Astro.props;
 ---
-<a class="brand brand-image" href="#" aria-label="Szept Rzeki — strona główna">
+<a class="brand brand-image" href={href} aria-label="Szept Rzeki — strona główna">
   <Image
     class:list={['brand-logo', { 'brand-logo-default': scrolledLogo }]}
     src={logos[logo]}

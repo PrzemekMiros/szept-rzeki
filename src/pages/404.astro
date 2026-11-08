@@ -1,0 +1,316 @@
+---
+import { Image } from 'astro:assets';
+import Brand from '../components/Brand.astro';
+import Icon from '../components/Icon.astro';
+import riverImage from '../assets/images/river.jpg';
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#403047" />
+    <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}images/favicon.png`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;450;500;550;600;650;700;750&display=swap" rel="stylesheet" />
+    <title>Nie znaleziono strony — Szept Rzeki</title>
+  </head>
+  <body class="not-found-page">
+    <header class="not-found-header">
+      <div class="not-found-container header-content">
+        <Brand logo="logo-dark.png" />
+        <a class="header-link" href="/#atrakcje">Odkryj przystań <Icon name="arrow" size={17} /></a>
+      </div>
+    </header>
+
+    <main class="not-found-container not-found-main">
+      <section class="not-found-copy" aria-labelledby="not-found-title">
+        <span class="eyebrow mint"><span class="tiny-dot"></span> CHWILA POZA TRASĄ</span>
+        <p class="not-found-code" aria-hidden="true">404</p>
+        <h1 id="not-found-title">Ta ścieżka nie prowadzi nad rzekę.</h1>
+        <p class="not-found-description">Wygląda na to, że ta strona zniknęła z nurtu albo nigdy tu nie była. Wróćmy na spokojniejszy szlak.</p>
+        <div class="not-found-actions">
+          <a class="button" href="/">Wróć na stronę główną <Icon name="arrow" size={18} /></a>
+          <a class="text-button" href="/#atrakcje">Poznaj przystań <span class="circle-arrow"><Icon name="arrow" size={15} /></span></a>
+        </div>
+        <p class="not-found-note"><Icon name="waves" size={20} /> Spokojnie. Rzeka nigdzie nie odpływa.</p>
+      </section>
+
+      <figure class="not-found-scene">
+        <div class="scene-orbit"></div>
+        <Image src={riverImage} alt="Spokojna rzeka otoczona zielenią" class="scene-photo" />
+        <figcaption class="scene-caption">
+          <span class="scene-icon"><Icon name="leaf" size={20} /></span>
+          <span><strong>Znajdź właściwy nurt</strong><small>Wróć do Szeptu Rzeki</small></span>
+        </figcaption>
+        <span class="scene-sun" aria-hidden="true"></span>
+      </figure>
+    </main>
+
+    <footer class="not-found-container not-found-footer">
+      <span>© {new Date().getFullYear()} Szept Rzeki. Blisko tego, co ważne.</span>
+      <a href="/">Strona główna <Icon name="arrow" size={15} /></a>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .not-found-page {
+    min-height: 100vh;
+    background: #f8faf7;
+  }
+
+  .not-found-container {
+    width: min(1240px, calc(100% - 96px));
+    margin-inline: auto;
+  }
+
+  .not-found-header {
+    height: 96px;
+    border-bottom: 1px solid #e8e1e9;
+    background: #ffffffc9;
+  }
+
+  .header-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-link,
+  .not-found-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .not-found-main {
+    display: grid;
+    min-height: min(690px, calc(100vh - 160px));
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: clamp(50px, 8vw, 115px);
+    padding-block: 70px;
+  }
+
+  .not-found-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 570px;
+  }
+
+  .not-found-code {
+    margin-top: 21px;
+    color: #e7dfe9;
+    font-family: var(--heading);
+    font-size: clamp(92px, 12vw, 158px);
+    font-weight: 600;
+    letter-spacing: -0.08em;
+    line-height: 0.8;
+  }
+
+  .not-found-copy h1 {
+    max-width: 570px;
+    margin-top: 20px;
+    font-size: clamp(43px, 5vw, 68px);
+    letter-spacing: -2.7px;
+    line-height: 1.05;
+  }
+
+  .not-found-description {
+    max-width: 440px;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .not-found-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    margin-top: 29px;
+  }
+
+  .not-found-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 48px;
+    color: #77707b;
+    font-size: 11px;
+  }
+
+  .not-found-note svg {
+    color: var(--green);
+  }
+
+  .not-found-scene {
+    position: relative;
+    min-height: 440px;
+    margin: 0;
+  }
+
+  .scene-orbit {
+    position: absolute;
+    inset: 12px -18px -15px 20px;
+    border: 1px solid #d5c6db;
+    border-radius: 48% 42% 45% 44%;
+    transform: rotate(7deg);
+  }
+
+  .scene-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 46% 42% 12px 12px;
+    object-position: center;
+  }
+
+  .scene-caption {
+    position: absolute;
+    bottom: 25px;
+    left: -30px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px 20px;
+    border: 1px solid #edf0e9;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 30px #29232e12;
+    transform: rotate(-3deg);
+  }
+
+  .scene-icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--mint);
+    color: var(--green);
+  }
+
+  .scene-caption strong,
+  .scene-caption small {
+    display: block;
+  }
+
+  .scene-caption strong {
+    color: var(--ink);
+    font-family: var(--heading);
+    font-size: 19px;
+  }
+
+  .scene-caption small {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 10px;
+  }
+
+  .scene-sun {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    width: 78px;
+    height: 78px;
+    border: 1px solid #d7b17b;
+    border-radius: 50%;
+  }
+
+  .scene-sun::after {
+    position: absolute;
+    inset: 12px;
+    border: 1px solid #d7b17b;
+    border-radius: 50%;
+    content: "";
+  }
+
+  .not-found-footer {
+    display: flex;
+    min-height: 64px;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #e8e1e9;
+    color: #77707b;
+    font-size: 10px;
+  }
+
+  @media (max-width: 760px) {
+    .not-found-container {
+      width: calc(100% - 40px);
+    }
+
+    .not-found-header {
+      height: 78px;
+    }
+
+    .not-found-header :global(.brand-image) {
+      width: 185px;
+    }
+
+    .header-link {
+      font-size: 0;
+    }
+
+    .not-found-main {
+      min-height: auto;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      padding-block: 55px 65px;
+    }
+
+    .not-found-code {
+      font-size: 112px;
+    }
+
+    .not-found-copy h1 {
+      font-size: clamp(44px, 11vw, 60px);
+    }
+
+    .not-found-note {
+      margin-top: 30px;
+    }
+
+    .not-found-scene {
+      min-height: min(88vw, 390px);
+      margin-inline: 20px 10px;
+    }
+
+    .scene-caption {
+      left: -18px;
+    }
+
+    .scene-sun {
+      right: -18px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .scene-sun::after {
+      inset: 9px;
+    }
+
+    .not-found-footer {
+      min-height: 74px;
+      gap: 12px;
+      font-size: 9px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .not-found-actions {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 18px;
+    }
+  }
+</style>
