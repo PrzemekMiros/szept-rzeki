@@ -1,0 +1,45 @@
+{
+  "generator": "Built-in image_gen",
+  "images": [
+    {
+      "name": "kemping",
+      "prompt": "Use case: photorealistic-natural. Create one beautiful editorial travel photograph for a Polish countryside riverside retreat website, Szept Rzeki. Landscape 4:3 composition, subject clearly readable in a small service card and centered for cropping. Natural late summer warm sunlight, fresh greens, warm wood, subtle lavender accents, refined welcoming atmosphere, believable photographic textures, no oversaturation, no text, no logo, no watermark, no collage. A charming cream camper van on a spacious grassy camping pitch near trees and a quiet river, two camping chairs and a little wooden table, peaceful morning."
+    },
+    {
+      "name": "catering",
+      "prompt": "Use case: photorealistic-natural. Create one beautiful editorial travel photograph for a Polish countryside riverside retreat website, Szept Rzeki. Landscape 4:3 composition, subject clearly readable in a small service card and centered for cropping. Natural late summer warm sunlight, fresh greens, warm wood, subtle lavender accents, refined welcoming atmosphere, believable photographic textures, no oversaturation, no text, no logo, no watermark, no collage. Elegant corporate outdoor catering buffet under a timber pavilion, beautifully arranged fresh salads, small sandwiches and seasonal fruit on ceramic serving platters, linen tablecloth, inviting food photography, no people."
+    },
+    {
+      "name": "wiata",
+      "prompt": "Use case: photorealistic-natural. Create one beautiful editorial travel photograph for a Polish countryside riverside retreat website, Szept Rzeki. Landscape 4:3 composition, subject clearly readable in a small service card and centered for cropping. Natural late summer warm sunlight, fresh greens, warm wood, subtle lavender accents, refined welcoming atmosphere, believable photographic textures, no oversaturation, no text, no logo, no watermark, no collage. A beautiful open-sided timber catering pavilion with a pitched roof, neatly arranged wooden dining tables and chairs, subtle warm string lights, lavender along the path, leafy Polish countryside, no people."
+    },
+    {
+      "name": "siatkowka",
+      "prompt": "Use case: photorealistic-natural. Create one beautiful editorial travel photograph for a Polish countryside riverside retreat website, Szept Rzeki. Landscape 4:3 composition, subject clearly readable in a small service card and centered for cropping. Natural late summer warm sunlight, fresh greens, warm wood, subtle lavender accents, refined welcoming atmosphere, believable photographic textures, no oversaturation, no text, no logo, no watermark, no collage. A well-kept outdoor sand volleyball court with a straight taut net between two posts, a volleyball in the foreground on sand, surrounded by green trees, late afternoon sun, no people."
+    },
+    {
+      "name": "badminton",
+      "prompt": "Use case: photorealistic-natural. Create one beautiful editorial travel photograph for a Polish countryside riverside retreat website, Szept Rzeki. Landscape 4:3 composition, subject clearly readable in a small service card and centered for cropping. Natural late summer warm sunlight, fresh greens, warm wood, subtle lavender accents, refined welcoming atmosphere, believable photographic textures, no oversaturation, no text, no logo, no watermark, no collage. A grass badminton court with a properly proportioned taut badminton net, two badminton rackets and one white feather shuttlecock resting on a wooden bench prominently in foreground, green garden setting, no people."
+    },
+    {
+      "name": "kajaki",
+      "prompt": "Use case: photorealistic-natural. Create one beautiful editorial travel photograph for a Polish countryside riverside retreat website, Szept Rzeki. Landscape 4:3 composition, subject clearly readable in a small service card and centered for cropping. Natural late summer warm sunlight, fresh greens, warm wood, subtle lavender accents, refined welcoming atmosphere, believable photographic textures, no oversaturation, no text, no logo, no watermark, no collage. Several colorful kayaks neatly arranged beside a low wooden riverside launching dock, paddles nearby, calm narrow river winding through lush Polish deciduous trees, inviting summer sunlight, no people."
+    },
+    {
+      "name": "dart",
+      "prompt": "Use case: photorealistic-natural. Create one beautiful editorial travel photograph for a Polish countryside riverside retreat website, Szept Rzeki. Landscape 4:3 composition, subject clearly readable in a small service card and centered for cropping. Natural late summer warm sunlight, fresh greens, warm wood, subtle lavender accents, refined welcoming atmosphere, believable photographic textures, no oversaturation, no text, no logo, no watermark, no collage. Close editorial photograph of a real regulation-style circular bristle dartboard mounted on timber wall under a rustic garden shelter, three darts grouped near center, shallow depth of field with green garden beyond, authentic numbered sectors, warm natural light."
+    },
+    {
+      "name": "jezioro",
+      "prompt": "Use case: photorealistic-natural. Create one beautiful editorial travel photograph for a Polish countryside riverside retreat website, Szept Rzeki. Landscape 4:3 composition, subject clearly readable in a small service card and centered for cropping. Natural late summer warm sunlight, fresh greens, warm wood, subtle lavender accents, refined welcoming atmosphere, believable photographic textures, no oversaturation, no text, no logo, no watermark, no collage. A serene Polish lake with clear gentle water, a small wooden pier in the foreground, reeds at the edge and leafy woodland reflected in water, soft golden morning sunlight, no boats or people."
+    },
+    {
+      "name": "namioty",
+      "prompt": "Use case: photorealistic-natural. Create one beautiful editorial travel photograph for a Polish countryside riverside retreat website, Szept Rzeki. Landscape 4:3 composition, subject clearly readable in a small service card and centered for cropping. Natural late summer warm sunlight, fresh greens, warm wood, subtle lavender accents, refined welcoming atmosphere, believable photographic textures, no oversaturation, no text, no logo, no watermark, no collage. Two tasteful small canvas camping tents pitched on a spacious grassy meadow beside woodland, a folded blanket and lantern near the tent entrance, quiet summer morning with gentle sunlight, no camper vans, no people."
+    },
+    {
+      "name": "luk",
+      "prompt": "Use case: photorealistic-natural. Create one beautiful editorial travel photograph for a Polish countryside riverside retreat website, Szept Rzeki. Landscape 4:3 composition, subject clearly readable in a small service card and centered for cropping. Natural late summer warm sunlight, fresh greens, warm wood, subtle lavender accents, refined welcoming atmosphere, believable photographic textures, no oversaturation, no text, no logo, no watermark, no collage. An outdoor archery range in a green woodland clearing, a wooden recurve bow and arrows in a quiver in the near foreground, a circular colored archery target on a sturdy straw butt further back, clear range, natural warm afternoon light, no people."
+    }
+  ]
+}

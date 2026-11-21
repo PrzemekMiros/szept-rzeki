@@ -2,6 +2,7 @@
 interface Props { name?: string; size?: number; class?: string; }
 const { name = 'arrow', size = 24, class: className } = Astro.props;
 const paths: Record<string, string> = {
+ target: 'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0ZM13 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0',
  arrow: 'M4 12h16m-6-6 6 6-6 6', leaf: 'M20 4C9 2 3 7 5 14c2 7 14 6 15-10ZM5 20 16 9',
  waves: 'M2 7c3-4 5 4 9 0s6 4 11 0M2 12c3-4 5 4 9 0s6 4 11 0M2 17c3-4 5 4 9 0s6 4 11 0',
  sun: 'M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0',
